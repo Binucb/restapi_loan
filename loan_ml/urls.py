@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework.authtoken import views
+
 
 admin.site.site_header = 'Loan Approval Login'
 admin.site.index_title = 'Loan Appoval Title'
@@ -22,6 +24,8 @@ admin.site.site_title = "Binu's title"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('loan_app.urls'))
+    path('api/',include('loan_app.urls')),
+    path('api-token-auth/',views.obtain_auth_token,name ='api-token-auth'),
+       
 
 ]
